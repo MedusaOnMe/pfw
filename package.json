@@ -1,0 +1,15 @@
+{
+  "name": "pump-fun-wrapped",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently -n backend,frontend -c blue,magenta \"cd backend && npm run dev\" \"cd frontend && npm run dev\"",
+    "install:all": "cd backend && npm install && cd ../frontend && npm install",
+    "build": "cd frontend && npm run build",
+    "start": "cd backend && npm start",
+    "railway:build": "npm run install:all && npm run build"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background: #080d08;
+  color: #fff;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d1510;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00ff88, #7fff00);
+  border-radius: 3px;
+}
+
+/* Glowing text */
+.glow-text {
+  text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 40px currentColor;
+}
+
+/* Glass morphism */
+.glass {
+  background: rgba(13, 21, 16, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 255, 136, 0.1);
+}
+
+/* Gradient border */
+.gradient-border {
+  position: relative;
+  background: #0d1510;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, #00ff88, #7fff00, #00ffa3);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Animated background grid */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(0, 255, 136, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 136, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Pulse animation for stats */
+@keyframes stat-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
+.stat-card:hover {
+  animation: stat-pulse 0.5s ease-in-out;
+}
+
+/* Loading spinner */
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 3px solid transparent;
+  border-top-color: #00ff88;
+  border-right-color: #7fff00;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Token card hover effect */
+.token-card {
+  transition: all 0.3s ease;
+}
+
+.token-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 40px rgba(0, 255, 136, 0.2);
+}
+
+/* Input glow */
+input:focus {
+  box-shadow: 0 0 0 2px rgba(0, 255, 136, 0.3), 0 0 20px rgba(0, 255, 136, 0.2);
+}
+
+/* Button hover */
+.btn-glow {
+  transition: all 0.3s ease;
+}
+
+.btn-glow:hover {
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.5), 0 0 40px rgba(0, 255, 136, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Number counter animation */
+.counter {
+  font-family: 'JetBrains Mono', monospace;
+  font-variant-numeric: tabular-nums;
+}
